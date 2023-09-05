@@ -31,6 +31,7 @@ module.exports = {
   productionSourceMap: false,
   // 开发服务器
   devServer: {
+    // 在 .env.development文件 配置了自定义端口号
     port: port,
     open: true,
     overlay: {

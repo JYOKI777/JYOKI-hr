@@ -6,6 +6,7 @@ import axios from 'axios'
 const service = axios.create({
   // 配置基准路径。最终 url = baseURL + 接口url
   // url = base url + request url
+  // process.env是脚手架自带的环境变量 .xxx可以获取到环境变量文件里面的数据
   baseURL: process.env.VUE_APP_BASE_API,
   // withCredentials: true, // send cookies when cross-domain requests
   // 请求超时配置，单位ms
