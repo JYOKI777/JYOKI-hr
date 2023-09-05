@@ -6,7 +6,10 @@ function resolve(dir) {
   return path.join(__dirname, dir)
 }
 
-const name = defaultSettings.title || 'vue Admin Template' // page title
+// 修改了setting.js 页面标题数据title
+// page title
+// defaultSettings.title读取了setting.js 页面标题数据title
+const name = defaultSettings.title || 'vue Admin Template'
 
 // If your port is set to 80,
 // use administrator privileges to execute the command line.
