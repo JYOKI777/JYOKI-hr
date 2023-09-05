@@ -3,7 +3,11 @@
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
 
       <div class="title-container">
-        <h3 class="title">Login Form</h3>
+        <!-- <h3 class="title">
+          <img src="@/assets/common/login-logo.png" alt="">
+        </h3> -->
+        <div class="title-img"><img src="@/assets/common/toushin-logo.png" alt="" class="title-img"></div>
+        <div class="title-text">東進管理システム</div>
       </div>
 
       <el-form-item prop="username">
@@ -41,11 +45,12 @@
         </span>
       </el-form-item>
 
-      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">Login</el-button>
+      <el-button class="loginBtn" :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">Login</el-button>
+      <!-- <el-button class="loginBtn" :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">ログイン</el-button> -->
 
       <div class="tips">
-        <span style="margin-right:20px;">username: admin</span>
-        <span> password: any</span>
+        <span style="margin-right:20px;">账号: 13800000002</span>
+        <span> 密码: 123456</span>
       </div>
 
     </el-form>
@@ -141,6 +146,10 @@ $cursor: #fff;
 
 /* reset element-ui css */
 .login-container {
+  background-image: url('~@/assets/common/loginback.gif');
+  background-position: center;// 将图片位置设置为充满整个屏幕
+  background-size: cover;
+  background-repeat: no-repeat;// 确保背景图片不会重复显示
   .el-input {
     display: inline-block;
     height: 47px;
@@ -165,14 +174,28 @@ $cursor: #fff;
 
   .el-form-item {
     border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.1);// 输入登录表单的背景色
     border-radius: 5px;
     color: #454545;
+  }
+
+  // 设置错误信息的颜色
+  .el-form-item__error {
+    color: red;
+  }
+
+  // 设置登录按钮的样式
+  .loginBtn {
+    background: #407ffe;
+    height: 64px;
+    line-height: 32px;
+    font-size: 24px;
   }
 }
 </style>
 
 <style lang="scss" scoped>
+// scoped限制局部在当前的子组件，不影响外组件和自己的子组件
 $bg:#2d3a4b;
 $dark_gray:#889aa4;
 $light_gray:#eee;
@@ -214,6 +237,9 @@ $light_gray:#eee;
 
   .title-container {
     position: relative;
+    display: flex;
+    align-items: center; /* 垂直居中对齐文本和图片 */
+    justify-content: center; /* 水平居中 */
 
     .title {
       font-size: 26px;
@@ -221,6 +247,20 @@ $light_gray:#eee;
       margin: 0px auto 40px auto;
       text-align: center;
       font-weight: bold;
+    }
+
+    .title-text {
+      font-size: 30px;
+      color: $light_gray;
+      // margin: 0px auto 20px auto;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .title-img {
+    width: 50px;
+    height: 50px;
+    margin: 5px 5px 12px 5px; /* 上、右、下、左四个方向的外边距值 */
     }
   }
 
